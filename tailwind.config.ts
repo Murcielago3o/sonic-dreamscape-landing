@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,39 +19,38 @@ export default {
     },
     extend: {
       colors: {
-        background: "#ffffff",
-        foreground: "#222222",
+        background: "#070c14",
+        foreground: "#ebf0f7",
         primary: {
-          DEFAULT: "#ebebeb", // off-white gray
-          foreground: "#222222"
+          DEFAULT: "#93b5e3",
+          foreground: "#070c14"
         },
         secondary: {
-          DEFAULT: "#6F6F6F", // neutral mid-gray
-          foreground: "#222222"
+          DEFAULT: "#1a4888",
+          foreground: "#ebf0f7"
         },
         accent: {
-          DEFAULT: "#FC0019" // Nothing Red
+          DEFAULT: "#317de5"
         },
-        // Extra mappings for shadcn compatibility
-        card: { DEFAULT: "#f5f5f5", foreground: "#222222" },
-        border: "#ededed",
-        muted: { DEFAULT: "#ececec", foreground: "#6F6F6F" },
+        card: { DEFAULT: "#0d1930", foreground: "#ebf0f7" },
+        border: "#1a4888",
+        muted: { DEFAULT: "#1a488899", foreground: "#ebf0f7" },
         destructive: "#FC0019",
       },
       fontFamily: {
         sans: ['"Inter"', '"DM Sans"', "ui-sans-serif", "system-ui"],
       },
       boxShadow: {
-        retro: "0 0 12px 0 #ededed, 0 0 48px 0 #d6d6d6",
+        retro: "0 0 20px 0 #317de555, 0 0 48px 0 #1a488844",
       },
       keyframes: {
         glow: {
-          "0%,100%": { boxShadow: "0 0 8px #FC001966, 0 0 24px #22222240" },
-          "50%": { boxShadow: "0 0 16px #FC0019aa, 0 0 32px #d6d6d699" },
+          "0%,100%": { boxShadow: "0 0 8px #317de566, 0 0 24px #ebf0f72f" },
+          "50%": { boxShadow: "0 0 16px #317de5aa, 0 0 32px #93b5e399" },
         },
         pulseglow: {
-          "0%,100%": { filter: "drop-shadow(0 0 0 #FC001999)" },
-          "50%": { filter: "drop-shadow(0 0 14px #FC0019cc)" }
+          "0%,100%": { filter: "drop-shadow(0 0 0 #317de5AA)" },
+          "50%": { filter: "drop-shadow(0 0 14px #317de5BB)" }
         }
       },
       animation: {
@@ -63,4 +61,3 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-

@@ -1,26 +1,24 @@
 
-/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Overwrite base styles for ultra-minimalist, Nothing-style look */
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #222222;
-    --primary: #ebebeb;
-    --primary-foreground: #222222;
-    --secondary: #6F6F6F;
-    --secondary-foreground: #222222;
-    --accent: #FC0019;
-    --muted: #ececec;
-    --muted-foreground: #6F6F6F;
-    --card: #f5f5f5;
-    --card-foreground: #222222;
-    --border: #ededed;
+    --background: #070c14;
+    --foreground: #ebf0f7;
+    --primary: #93b5e3;
+    --primary-foreground: #070c14;
+    --secondary: #1a4888;
+    --secondary-foreground: #ebf0f7;
+    --accent: #317de5;
+    --muted: #1a488899;
+    --muted-foreground: #ebf0f7;
+    --card: #0d1930;
+    --card-foreground: #ebf0f7;
+    --border: #1a4888;
     --radius: 0.5rem;
     --destructive: #FC0019;
     --destructive-foreground: #fff;
@@ -38,11 +36,11 @@
   h1, h2, h3, h4 {
     font-family: 'Inter', 'DM Sans', ui-sans-serif, system-ui;
     text-transform: none;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.16em;
   }
 }
 
-/* Minimalist red underline for links */
+/* Accent link underline */
 a.retro-link {
   position: relative;
   color: var(--accent);
@@ -65,28 +63,26 @@ a.retro-link:hover::after {
 }
 
 input[type="email"]::placeholder {
-  color: #a5a5a5;
+  color: #6c93c7;
 }
 
 .blur-accent {
-  background: radial-gradient(circle, #FC001922 10%, #fff 80%);
-  filter: blur(24px);
+  background: radial-gradient(circle, #317de522 10%, #0d1930 80%);
+  filter: blur(36px);
   pointer-events: none;
   position: absolute;
   z-index: 0;
 }
 
 @layer components {
-  .neon-btn {
-    @apply px-6 py-3 rounded-xl text-background font-bold shadow-lg border border-accent bg-accent transition-all duration-300;
-    box-shadow: 0 0 18px 2px #fc001980;
-    text-shadow: none;
+  .retro-btn {
+    @apply px-7 py-3 rounded-xl font-bold shadow-lg border bg-primary text-primary-foreground transition-all duration-300;
+    box-shadow: 0 0 18px 2px #317de580;
   }
-  .neon-btn:hover {
-    background: #FC0019;
-    box-shadow: 0 0 28px 8px #fc001988;
-    color: #fff;
+  .retro-btn:hover {
+    background: #317de5;
+    color: #ebf0f7;
+    box-shadow: 0 0 28px 8px #317de588;
     letter-spacing: 0.04em;
   }
 }
-
