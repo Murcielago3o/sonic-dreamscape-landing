@@ -1,66 +1,55 @@
 
-// Modern retro-futuristic landing for PulsePlayer "by Nothing"
-
-import PlayerRetroWave from "@/components/PlayerRetroWave";
-import { Music, Volume } from "lucide-react";
 import NothingLogo from "@/components/NothingLogo";
-
-const APP_NAME = "PulsePlayer";
 
 const Index = () => {
   return (
-    <main className="relative flex flex-col items-center min-h-screen justify-center px-2 py-10 bg-background overflow-x-hidden">
+    <main className="relative flex min-h-screen flex-col items-center justify-center bg-background overflow-x-hidden">
+      {/* Soft dot grid as ultra-minimal background accent */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-background/95 to-secondary/60"
         aria-hidden
+        className="pointer-events-none absolute inset-0 w-full h-full z-0"
+        style={{
+          background: "radial-gradient(circle at 24px 24px, #ebf0f71a 2px, transparent 1.5px), radial-gradient(circle at 0 0, #ebf0f708 1px, transparent 1.5px)",
+          backgroundSize: "48px 48px",
+          opacity: 0.35,
+        }}
       />
-      <div className="pointer-events-none fixed -top-32 left-0 w-full h-72 blur-accent z-0" />
-      <section className="w-full max-w-3xl mx-auto z-10 flex flex-col items-center mt-16 mb-6">
-        <div className="mb-6 flex flex-col items-center justify-center">
-          <PlayerRetroWave />
-        </div>
-        <h1
-          className="text-[2.8rem] sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-center text-primary drop-shadow-[0_2px_18px_#317de5aa] animate-glow select-none flex flex-col items-center gap-0"
-          style={{ textShadow: "0 0 16px #317de5" }}
-        >
-          <span className="inline-flex items-center gap-2">
-            <NothingLogo size={42} />
-            <Volume className="h-8 w-8 inline-block text-accent -mt-1 animate-pulseglow" /> 
-            {APP_NAME}
-            <Music className="h-8 w-8 inline-block text-accent -mt-1" />
-          </span>
-          <span className="block text-lg font-mono text-muted-foreground/70 mt-2 tracking-widest" style={{ letterSpacing: "0.13em" }}>
-            by <span className="font-semibold text-accent">Nothing</span>
-          </span>
+      
+      {/* Transparent glowing ellipse for glassmorphic effect */}
+      <div
+        aria-hidden
+        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[420px] h-[240px] rounded-full blur-[64px] z-0"
+        style={{
+          background: "linear-gradient(120deg, #E2F1F980 0%, #317de566 80%)",
+          opacity: 0.7,
+          filter: "blur(30px)",
+        }}
+      />
+
+      <section className="relative z-10 flex flex-col items-center justify-center mt-20">
+        <NothingLogo size={96} />
+        <h1 className="mt-2 font-mono text-[2.8rem] sm:text-6xl md:text-7xl font-semibold tracking-widest text-foreground/90 text-center leading-tight drop-shadow-[0_6px_24px_#317de540] select-none">
+          <span className="sr-only">Nothing Pulse</span>
+          .pulse
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground/90 max-w-xl text-center mb-8 mt-1 font-sans" style={{letterSpacing: '0.03em'}}>
-          A new era in web-based music, brought to you by <span className="font-semibold text-accent">Nothing</span>.<br />
-          Your music, uninterrupted.<br />
-          <span className="text-primary/80">Minimal ads</span>
-          {", "}
-          <span className="text-accent font-bold">never between your songs</span>.<br />
-          Crafted with minimalism and unmistakable clarity.<br />
-          Experience transparency in sound and design.
+        <h2 className="mt-2 font-mono text-lg sm:text-xl md:text-2xl text-muted-foreground font-normal tracking-wider text-center italic select-none">
+          music, distilled
+        </h2>
+        <p className="mt-10 text-base sm:text-lg font-mono text-primary/70 text-center max-w-md tracking-widest select-none">
+          Just sound.<br />
+          No distractions.<br />
+          Designed in London.<br />
+          By <span className="font-bold text-accent">Nothing</span>.
         </p>
         <a
           href="#"
-          className="neon-btn group mt-2 animate-glow focus:outline-none"
-          style={{ boxShadow: "0 0 24px 2px #317de580" }}
+          className="mt-12 px-10 py-4 bg-accent rounded-xl text-background text-lg font-semibold font-mono tracking-widest shadow-lg hover:scale-105 transition-transform focus:outline-none"
+          style={{ boxShadow: "0 0 42px 4px #317de588" }}
         >
-          Start Listening
+          LISTEN
         </a>
-        <span className="block mt-5 text-base text-muted-foreground/70 text-center font-mono tracking-wider">
-          No sign-up required &bull; Pure listening, powered by Nothing
-        </span>
-        <span className="block mt-2">
-          <a
-            className="retro-link"
-            href="mailto:hello@pulseplayer.app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Want early access? Get notified &rarr;
-          </a>
+        <span className="mt-7 block text-xs text-muted-foreground/70 font-mono tracking-wider select-none">
+          No sign-up. No noise. Pure listening.
         </span>
       </section>
     </main>
