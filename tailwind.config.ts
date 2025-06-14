@@ -20,45 +20,47 @@ export default {
     },
     extend: {
       colors: {
-        background: "#070c14",
-        foreground: "#ebf0f7",
+        background: "#ffffff",
+        foreground: "#222222",
         primary: {
-          DEFAULT: "#93b5e3",
-          foreground: "#070c14"
+          DEFAULT: "#ebebeb", // off-white gray
+          foreground: "#222222"
         },
         secondary: {
-          DEFAULT: "#1a4888",
-          foreground: "#ebf0f7"
+          DEFAULT: "#6F6F6F", // neutral mid-gray
+          foreground: "#222222"
         },
         accent: {
-          DEFAULT: "#317de5"
+          DEFAULT: "#FC0019" // Nothing Red
         },
-        // Custom shadcn mapping
-        card: { DEFAULT: "#0A1230", foreground: "#ebf0f7" },
-        border: "#1a4888",
-        muted: { DEFAULT: "#1a1d26", foreground: "#93b5e3" }
+        // Extra mappings for shadcn compatibility
+        card: { DEFAULT: "#f5f5f5", foreground: "#222222" },
+        border: "#ededed",
+        muted: { DEFAULT: "#ececec", foreground: "#6F6F6F" },
+        destructive: "#FC0019",
       },
       fontFamily: {
-        sans: ['"DM Sans"', '"Inter"', "ui-sans-serif", "system-ui"],
+        sans: ['"Inter"', '"DM Sans"', "ui-sans-serif", "system-ui"],
       },
       boxShadow: {
-        retro: "0 0 24px 2px #317de5, 0 0 64px 6px #1a488880",
+        retro: "0 0 12px 0 #ededed, 0 0 48px 0 #d6d6d6",
       },
       keyframes: {
         glow: {
-          "0%,100%": { boxShadow: "0 0 10px #317de555, 0 0 24px #93b5e355" },
-          "50%": { boxShadow: "0 0 28px #93b5e399, 0 0 40px #317de5cc" },
+          "0%,100%": { boxShadow: "0 0 8px #FC001966, 0 0 24px #22222240" },
+          "50%": { boxShadow: "0 0 16px #FC0019aa, 0 0 32px #d6d6d699" },
         },
         pulseglow: {
-          "0%,100%": { filter: "drop-shadow(0 0 0 #317de555)" },
-          "50%": { filter: "drop-shadow(0 0 28px #317de5cc)" }
+          "0%,100%": { filter: "drop-shadow(0 0 0 #FC001999)" },
+          "50%": { filter: "drop-shadow(0 0 14px #FC0019cc)" }
         }
       },
       animation: {
-        'glow': 'glow 2.4s ease-in-out infinite',
-        'pulseglow': "pulseglow 2.4s ease-in-out infinite"
+        'glow': 'glow 2.2s ease-in-out infinite',
+        'pulseglow': "pulseglow 2.2s ease-in-out infinite"
       }
     }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
