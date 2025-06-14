@@ -1,28 +1,37 @@
 
 /**
- * A retrofuturistic minimal SVG doodle of a music player with wave
+ * A retrofuturistic minimal SVG doodle of a music player with a gradient circle glow
  */
 const PlayerRetroWave = () => (
-  <div className="relative mt-8 mb-6 w-full flex justify-center">
+  <div className="relative mt-8 mb-6 w-full flex justify-center items-center">
+    {/* Gradient circle background */}
+    <svg
+      width="260"
+      height="260"
+      viewBox="0 0 260 260"
+      className="absolute -top-10 left-1/2 -translate-x-1/2 pointer-events-none z-0 animate-glow"
+      aria-hidden
+      style={{ filter: "blur(10px)" }}
+    >
+      <defs>
+        <radialGradient id="pulse-gradient" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stopColor="#317de5" stopOpacity="0.85" />
+          <stop offset="70%" stopColor="#93b5e3" stopOpacity="0.38" />
+          <stop offset="100%" stopColor="#1a4888" stopOpacity="0.10" />
+        </radialGradient>
+      </defs>
+      <circle cx="130" cy="130" r="110" fill="url(#pulse-gradient)" />
+    </svg>
+
+    {/* Player and wave SVG content */}
     <svg
       width="320"
       height="120"
       viewBox="0 0 320 120"
       fill="none"
       aria-hidden
-      className="mx-auto block"
+      className="mx-auto block relative z-10"
     >
-      <rect
-        x="20"
-        y="40"
-        width="280"
-        height="56"
-        rx="14"
-        fill="#1a4888"
-        stroke="#317de5"
-        strokeWidth="3"
-        filter="url(#shadow1)"
-      />
       {/* Play button */}
       <circle
         cx="60"
