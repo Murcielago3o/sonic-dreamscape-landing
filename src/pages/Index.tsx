@@ -1,8 +1,9 @@
 
-// Modern retro-futuristic landing for PulsePlayer
+// Modern retro-futuristic landing for PulsePlayer "by Nothing"
 
 import PlayerRetroWave from "@/components/PlayerRetroWave";
 import { Music, Volume } from "lucide-react";
+import NothingLogo from "@/components/NothingLogo";
 
 const APP_NAME = "PulsePlayer";
 
@@ -19,20 +20,27 @@ const Index = () => {
           <PlayerRetroWave />
         </div>
         <h1
-          className="text-[2.6rem] sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-center text-primary drop-shadow-[0_2px_18px_#317de5aa] animate-glow select-none"
+          className="text-[2.8rem] sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-center text-primary drop-shadow-[0_2px_18px_#317de5aa] animate-glow select-none flex flex-col items-center gap-0"
           style={{ textShadow: "0 0 16px #317de5" }}
         >
           <span className="inline-flex items-center gap-2">
+            <NothingLogo size={42} />
             <Volume className="h-8 w-8 inline-block text-accent -mt-1 animate-pulseglow" /> 
             {APP_NAME}
             <Music className="h-8 w-8 inline-block text-accent -mt-1" />
           </span>
+          <span className="block text-lg font-mono text-muted-foreground/70 mt-2 tracking-widest" style={{ letterSpacing: "0.13em" }}>
+            by <span className="font-semibold text-accent">Nothing</span>
+          </span>
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground/90 max-w-xl text-center mb-8">
-          Your free, web-based music player.
-          <br />
-          <span className="text-primary/90">Minimal ads</span>, and we <span className="text-accent font-semibold">promise not to ever interrupt your songs for an ad</span>.  
-          Pure music. Chill vibes. Retro-future feel.
+        <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground/90 max-w-xl text-center mb-8 mt-1 font-sans" style={{letterSpacing: '0.03em'}}>
+          A new era in web-based music, brought to you by <span className="font-semibold text-accent">Nothing</span>.<br />
+          Your music, uninterrupted.<br />
+          <span className="text-primary/80">Minimal ads</span>
+          {", "}
+          <span className="text-accent font-bold">never between your songs</span>.<br />
+          Crafted with minimalism and unmistakable clarity.<br />
+          Experience transparency in sound and design.
         </p>
         <a
           href="#"
@@ -41,8 +49,8 @@ const Index = () => {
         >
           Start Listening
         </a>
-        <span className="block mt-5 text-base text-muted-foreground/80 text-center">
-          No sign-up required • No interruptions
+        <span className="block mt-5 text-base text-muted-foreground/70 text-center font-mono tracking-wider">
+          No sign-up required &bull; Pure listening, powered by Nothing
         </span>
         <span className="block mt-2">
           <a
