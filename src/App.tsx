@@ -8,7 +8,6 @@ import { ThemeProvider } from "./hooks/useTheme";
 import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
 import NotFound from "./pages/NotFound";
-import ThemeToggle from "./components/portfolio/ThemeToggle";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +17,6 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <ThemeToggle />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
