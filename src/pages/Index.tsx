@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom";
+
 const Index = () => {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-background overflow-x-hidden">
@@ -12,7 +14,6 @@ const Index = () => {
           opacity: 0.16,
         }}
       />
-      {/* Blurred blue ellipse accent */}
       <div
         aria-hidden
         className="absolute -top-32 left-1/2 -translate-x-1/2 w-[460px] h-[200px] rounded-full blur-[90px] z-0"
@@ -38,12 +39,20 @@ const Index = () => {
           Enjoy unlimited listening for free, with minimal interruptions.<br />
           We promise: <span className="font-bold text-primary">no more ads cutting your favorite tracks.</span>
         </p>
-        <a
-          href="#"
-          className="mt-14 px-12 py-4 retro-btn text-lg font-semibold font-sans tracking-widest shadow-xl hover:scale-105 transition-transform focus:outline-none"
-        >
-          LISTEN NOW
-        </a>
+        <div className="flex gap-4 mt-14">
+          <a
+            href="#"
+            className="px-12 py-4 retro-btn text-lg font-semibold font-sans tracking-widest shadow-xl hover:scale-105 transition-transform focus:outline-none"
+          >
+            LISTEN NOW
+          </a>
+          <Link
+            to="/portfolio"
+            className="px-12 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-background rounded-xl font-semibold font-sans tracking-widest transition-all duration-300 hover:scale-105 focus:outline-none"
+          >
+            PORTFOLIO
+          </Link>
+        </div>
         <span className="mt-8 block text-xs text-muted-foreground/80 font-sans tracking-widest select-none">
           Pure music. Pure focus.
         </span>
