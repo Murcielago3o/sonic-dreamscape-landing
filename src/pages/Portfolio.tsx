@@ -11,10 +11,17 @@ import { useTheme } from '../hooks/useTheme';
 const Portfolio = () => {
   const { isDark } = useTheme();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHoverDevice, setIsHoverDevice] = useState(false);
 
   useEffect(() => {
+    // Check if device supports hover
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    setIsHoverDevice(mediaQuery.matches);
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (mediaQuery.matches) {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -23,15 +30,17 @@ const Portfolio = () => {
 
   return (
     <div className={`min-h-screen transition-colors duration-700 ${isDark ? 'bg-background text-foreground' : 'bg-gray-50 text-gray-900'}`}>
-      {/* Custom Cursor */}
-      <div 
-        className="fixed w-4 h-4 bg-accent/30 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out"
-        style={{ 
-          left: mousePosition.x - 8, 
-          top: mousePosition.y - 8,
-          transform: `scale(${mousePosition.x > 0 ? 1 : 0})`
-        }}
-      />
+      {/* Custom Cursor - only on hover-capable devices */}
+      {isHoverDevice && (
+        <div 
+          className="fixed w-4 h-4 bg-accent/30 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out"
+          style={{ 
+            left: mousePosition.x - 8, 
+            top: mousePosition.y - 8,
+            transform: `scale(${mousePosition.x > 0 ? 1 : 0})`
+          }}
+        />
+      )}
       
       <Navbar />
       <LandingSection />
