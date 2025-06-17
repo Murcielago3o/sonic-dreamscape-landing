@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -24,6 +24,10 @@
     --destructive-foreground: #fff;
   }
 
+  * {
+    cursor: none;
+  }
+
   body {
     background: var(--background);
     color: var(--foreground);
@@ -33,45 +37,14 @@
     transition: background 0.3s, color 0.3s;
   }
 
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
   h1, h2, h3, h4 {
     font-family: 'Inter', 'DM Sans', ui-sans-serif, system-ui;
-    text-transform: none;
-    letter-spacing: 0.16em;
+    letter-spacing: -0.02em;
   }
-}
-
-/* Accent link underline */
-a.retro-link {
-  position: relative;
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-a.retro-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  left: 0; bottom: -2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transition: transform 0.2s;
-  transform-origin: left;
-}
-a.retro-link:hover::after {
-  transform: scaleX(1);
-}
-
-input[type="email"]::placeholder {
-  color: #6c93c7;
-}
-
-.blur-accent {
-  background: radial-gradient(circle, #317de522 10%, #0d1930 80%);
-  filter: blur(36px);
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
 }
 
 @layer components {
@@ -85,4 +58,77 @@ input[type="email"]::placeholder {
     box-shadow: 0 0 28px 8px #317de588;
     letter-spacing: 0.04em;
   }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .prose h3 {
+    @apply text-xl font-semibold mt-8 mb-4 text-accent;
+  }
+
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .prose ul {
+    @apply list-disc list-inside space-y-1 mb-4;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #317de540;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #317de580;
 }

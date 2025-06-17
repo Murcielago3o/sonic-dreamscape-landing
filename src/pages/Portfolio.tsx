@@ -1,23 +1,43 @@
 
-import React, { useState } from 'react';
-import HeroSection from '../components/portfolio/HeroSection';
+import React, { useState, useEffect } from 'react';
+import Navbar from '../components/portfolio/Navbar';
+import LandingSection from '../components/portfolio/LandingSection';
 import AboutSection from '../components/portfolio/AboutSection';
-import WorkSection from '../components/portfolio/WorkSection';
-import SkillsSection from '../components/portfolio/SkillsSection';
+import ProjectsSection from '../components/portfolio/ProjectsSection';
+import ExperimentsSection from '../components/portfolio/ExperimentsSection';
 import ContactSection from '../components/portfolio/ContactSection';
-import ThemeToggle from '../components/portfolio/ThemeToggle';
 import { useTheme } from '../hooks/useTheme';
 
 const Portfolio = () => {
   const { isDark } = useTheme();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${isDark ? 'bg-background text-foreground' : 'bg-white text-gray-900'}`}>
-      <ThemeToggle />
-      <HeroSection />
+    <div className={`min-h-screen transition-colors duration-700 ${isDark ? 'bg-background text-foreground' : 'bg-gray-50 text-gray-900'}`}>
+      {/* Custom Cursor */}
+      <div 
+        className="fixed w-4 h-4 bg-accent/30 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out"
+        style={{ 
+          left: mousePosition.x - 8, 
+          top: mousePosition.y - 8,
+          transform: `scale(${mousePosition.x > 0 ? 1 : 0})`
+        }}
+      />
+      
+      <Navbar />
+      <LandingSection />
       <AboutSection />
-      <WorkSection />
-      <SkillsSection />
+      <ProjectsSection />
+      <ExperimentsSection />
       <ContactSection />
     </div>
   );
