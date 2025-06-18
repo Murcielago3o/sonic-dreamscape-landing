@@ -11,7 +11,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   const { isDark } = useTheme();
 
   return (
-    <div className="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
       <div 
         className={`max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl animate-scale-in ${
           isDark ? 'bg-card border border-border/20' : 'bg-white border border-gray-200'
