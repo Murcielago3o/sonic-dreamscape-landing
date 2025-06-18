@@ -12,7 +12,6 @@ const Portfolio = () => {
   const { isDark } = useTheme();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHoverDevice, setIsHoverDevice] = useState(false);
-  const [isMouseActive, setIsMouseActive] = useState(false);
 
   useEffect(() => {
     // Check if device supports hover
@@ -22,7 +21,6 @@ const Portfolio = () => {
     const handleMouseMove = (e: MouseEvent) => {
       if (mediaQuery.matches) {
         setMousePosition({ x: e.clientX, y: e.clientY });
-        setIsMouseActive(true);
       }
     };
 
@@ -33,12 +31,13 @@ const Portfolio = () => {
   return (
     <div className={`min-h-screen transition-colors duration-700 ${isDark ? 'bg-background text-foreground' : 'bg-gray-50 text-gray-900'}`}>
       {/* Custom Cursor - only on hover-capable devices */}
-      {isHoverDevice && isMouseActive && (
+      {isHoverDevice && (
         <div 
           className="fixed w-4 h-4 bg-accent/30 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out"
           style={{ 
             left: mousePosition.x - 8, 
-            top: mousePosition.y - 8
+            top: mousePosition.y - 8,
+            transform: `scale(${mousePosition.x > 0 ? 1 : 0})`
           }}
         />
       )}
