@@ -67,7 +67,7 @@ const LandingSection = () => {
           <div className="text-xs font-mono uppercase tracking-wider opacity-50 mb-4 group-hover:opacity-100 transition-opacity">
             Explore
           </div>
-          <div className="w-px h-16 bg-gradient-to-b from-accent/50 to-transparent relative flex items-start justify-center">
+          <div className="relative w-px h-16 bg-gradient-to-b from-accent/50 to-transparent flex justify-center">
             <div className="w-1 h-1 bg-accent rounded-full animate-bounce" />
           </div>
         </div>
